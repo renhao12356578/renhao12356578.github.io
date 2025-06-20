@@ -8,37 +8,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #ffffff;
-    background: #0a0a0a;
+    color: #333;
     overflow-x: hidden;
-    position: relative;
-}
-
-/* 动态背景粒子效果 */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(2px 2px at 20px 30px, #00ffff, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255, 0, 255, 0.8), transparent),
-        radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
-        radial-gradient(1px 1px at 130px 80px, rgba(255, 0, 255, 0.6), transparent),
-        radial-gradient(2px 2px at 160px 30px, #00ffff, transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: sparkle 20s linear infinite;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.3;
-}
-
-@keyframes sparkle {
-    0% { transform: translateY(0px) rotate(0deg); }
-    100% { transform: translateY(-100px) rotate(360deg); }
 }
 
 .container {
@@ -52,12 +23,11 @@ body::before {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 20px rgba(0, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -73,15 +43,13 @@ body::before {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #00ffff;
+    color: #2c3e50;
     text-decoration: none;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: color 0.3s ease;
 }
 
 .nav-logo a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    color: #3498db;
 }
 
 .nav-menu {
@@ -91,16 +59,15 @@ body::before {
 }
 
 .nav-link {
-    color: #ffffff;
+    color: #333;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
 }
 
 .nav-link:hover {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    color: #3498db;
 }
 
 .nav-link::after {
@@ -110,9 +77,8 @@ body::before {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    background-color: #3498db;
     transition: width 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 .nav-link:hover::after {
@@ -128,10 +94,9 @@ body::before {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #00ffff;
+    background-color: #333;
     margin: 3px 0;
     transition: 0.3s;
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 /* 主页样式 */
@@ -139,24 +104,9 @@ body::before {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding-top: 70px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
 }
 
 .hero-container {
@@ -176,18 +126,7 @@ body::before {
 }
 
 .highlight {
-    color: #00ffff;
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-    }
-    to {
-        text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 0.8);
-    }
+    color: #ffd700;
 }
 
 .hero-subtitle {
@@ -195,7 +134,6 @@ body::before {
     margin-bottom: 1rem;
     opacity: 0.9;
     animation: fadeInUp 1s ease 0.2s both;
-    color: #00ffff;
 }
 
 .hero-description {
@@ -223,30 +161,26 @@ body::before {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    background: #3498db;
     color: white;
-    border: none;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    background: #2980b9;
     transform: translateY(-2px);
-    box-shadow: 0 5px 25px rgba(0, 255, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #00ffff;
-    border: 2px solid #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: white;
+    border: 2px solid white;
 }
 
 .btn-secondary:hover {
-    background: #00ffff;
-    color: #0a0a0a;
+    background: white;
+    color: #333;
     transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
 .hero-image {
@@ -256,44 +190,31 @@ body::before {
 }
 
 .profile-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-img i {
     font-size: 8rem;
-    color: #00ffff;
-    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* 关于我样式 */
 .about {
     padding: 100px 0;
-    background: #111111;
+    background: #f8f9fa;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #ffffff;
+    color: #2c3e50;
     position: relative;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .section-title::after {
@@ -301,11 +222,10 @@ body::before {
     position: absolute;
     width: 50px;
     height: 3px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    background: #3498db;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .about-text {
@@ -317,7 +237,7 @@ body::before {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #cccccc;
+    color: #666;
 }
 
 .about-stats {
@@ -330,35 +250,31 @@ body::before {
 .stat {
     text-align: center;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.5);
+    background: white;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .stat:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
-    border-color: #00ffff;
 }
 
 .stat h3 {
     font-size: 2.5rem;
-    color: #00ffff;
+    color: #3498db;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .stat p {
-    color: #cccccc;
+    color: #666;
     font-weight: 500;
 }
 
 /* 荣誉奖项样式 */
 .honors {
     padding: 100px 0;
-    background: #0a0a0a;
+    background: white;
 }
 
 .honors-grid {
@@ -369,34 +285,30 @@ body::before {
 }
 
 .honor-card {
-    background: rgba(0, 0, 0, 0.5);
+    background: #f8f9fa;
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+    border: 1px solid #e9ecef;
 }
 
 .honor-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
-    background: rgba(0, 0, 0, 0.7);
-    border-color: #00ffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: white;
 }
 
 .honor-icon {
     font-size: 3rem;
-    color: #ff00ff;
+    color: #e74c3c;
     margin-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
 }
 
 .honor-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: #2c3e50;
 }
 
 .honor-card ul {
@@ -406,7 +318,7 @@ body::before {
 }
 
 .honor-card li {
-    color: #cccccc;
+    color: #666;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
@@ -416,38 +328,34 @@ body::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #00ffff;
+    color: #27ae60;
     font-weight: bold;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 .education-info, .personal-info {
-    background: rgba(0, 0, 0, 0.3);
+    background: #f8f9fa;
     padding: 1.5rem;
     border-radius: 10px;
     margin-bottom: 2rem;
-    border-left: 4px solid #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    border-left: 4px solid #3498db;
 }
 
 .education-info h3, .personal-info h3 {
-    color: #ffffff;
+    color: #2c3e50;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .education-info h3 i, .personal-info h3 i {
-    color: #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    color: #3498db;
 }
 
 /* 技能样式 */
 .skills {
     padding: 100px 0;
-    background: #111111;
+    background: #f8f9fa;
 }
 
 .skills-grid {
@@ -460,43 +368,39 @@ body::before {
 .skill-card {
     text-align: center;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.5);
+    background: #f8f9fa;
     border-radius: 15px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+    border: 1px solid #e9ecef;
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
-    background: rgba(0, 0, 0, 0.7);
-    border-color: #00ffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: white;
 }
 
 .skill-icon {
     font-size: 3rem;
-    color: #00ffff;
+    color: #3498db;
     margin-bottom: 1rem;
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .skill-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: #2c3e50;
 }
 
 .skill-card p {
-    color: #cccccc;
+    color: #666;
     line-height: 1.6;
 }
 
 /* 项目样式 */
 .projects {
     padding: 100px 0;
-    background: #0a0a0a;
+    background: #f8f9fa;
 }
 
 .projects-grid {
@@ -507,45 +411,40 @@ body::before {
 }
 
 .project-card {
-    background: rgba(0, 0, 0, 0.5);
+    background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.3);
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
-    border-color: #00ffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
     height: 200px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #00ffff;
+    color: white;
     font-size: 4rem;
-    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .project-content {
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
 }
 
 .project-content h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: #2c3e50;
 }
 
 .project-content p {
-    color: #cccccc;
+    color: #666;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -558,14 +457,12 @@ body::before {
 }
 
 .tech-tag {
-    background: rgba(0, 255, 255, 0.2);
-    color: #00ffff;
+    background: #e3f2fd;
+    color: #1976d2;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
 }
 
 .project-links {
@@ -574,22 +471,20 @@ body::before {
 }
 
 .project-link {
-    color: #00ffff;
+    color: #3498db;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    transition: color 0.3s ease;
 }
 
 .project-link:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    color: #2980b9;
 }
 
 /* 联系样式 */
 .contact {
     padding: 100px 0;
-    background: #111111;
+    background: white;
 }
 
 .contact-content {
@@ -609,32 +504,28 @@ body::before {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    background: #3498db;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 .contact-details h3 {
-    color: #ffffff;
+    color: #2c3e50;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .contact-details p {
-    color: #cccccc;
+    color: #666;
 }
 
 .contact-form {
-    background: rgba(0, 0, 0, 0.5);
+    background: #f8f9fa;
     padding: 2rem;
     border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
 }
 
 .form-group {
@@ -645,33 +536,24 @@ body::before {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    background: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #888888;
+    border-color: #3498db;
 }
 
 /* 页脚样式 */
 .footer {
-    background: #0a0a0a;
+    background: #2c3e50;
     color: white;
     padding: 2rem 0;
     text-align: center;
-    border-top: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .footer .container {
@@ -686,16 +568,13 @@ body::before {
 }
 
 .social-links a {
-    color: #00ffff;
+    color: white;
     font-size: 1.5rem;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-    transform: scale(1.2);
+    color: #3498db;
 }
 
 /* 动画 */
@@ -732,13 +611,12 @@ body::before {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(10, 10, 10, 0.98);
+        background-color: white;
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 255, 255, 0.2);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
     }
     
     .nav-menu.active {
@@ -776,74 +654,4 @@ body::before {
         flex-direction: column;
         gap: 1rem;
     }
-}
-
-/* 额外的炫酷动画效果 */
-@keyframes neonBorder {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.5);
-    }
-}
-
-.neon-effect {
-    animation: neonBorder 2s ease-in-out infinite;
-}
-
-/* 文字闪烁效果 */
-@keyframes textFlicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-}
-
-.flicker {
-    animation: textFlicker 3s ease-in-out infinite;
-}
-
-/* 波纹效果更新 */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.8), rgba(255, 0, 255, 0.4));
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* 滚动条样式 */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-}
-
-/* 选择文本样式 */
-::selection {
-    background: rgba(0, 255, 255, 0.3);
-    color: #ffffff;
-}
-
-::-moz-selection {
-    background: rgba(0, 255, 255, 0.3);
-    color: #ffffff;
 }
