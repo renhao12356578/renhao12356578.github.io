@@ -123,6 +123,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
+    color: #fffcfc;
 }
 
 .highlight {
@@ -213,7 +214,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #2c3e50;
+    color: #333333;
     position: relative;
 }
 
@@ -308,7 +309,7 @@ body {
 .honor-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #333333;
 }
 
 .honor-card ul {
@@ -341,7 +342,7 @@ body {
 }
 
 .education-info h3, .personal-info h3 {
-    color: #2c3e50;
+    color: #333333;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -389,7 +390,7 @@ body {
 .skill-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #333333;
 }
 
 .skill-card p {
@@ -440,7 +441,7 @@ body {
 .project-content h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #333333;
 }
 
 .project-content p {
@@ -514,12 +515,41 @@ body {
 }
 
 .contact-details h3 {
-    color: #2c3e50;
+    color: #333333;
     margin-bottom: 0.5rem;
 }
 
 .contact-details p {
-    color: #666;
+    color: #959393;
+}
+
+.contact-link {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 234, 0, 0.5);
+    transform: translateX(5px);
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transition: width 0.3s ease;
+}
+
+.contact-link:hover::after {
+    width: 100%;
 }
 
 .contact-form {
