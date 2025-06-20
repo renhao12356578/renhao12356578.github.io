@@ -200,8 +200,20 @@ body {
 }
 
 .profile-img i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     font-size: 8rem;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* 关于我样式 */
