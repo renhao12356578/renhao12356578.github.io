@@ -17,11 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 平滑滚动到锚点
+    // 平滑滚动到锚点（排除写文章链接）
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // 如果是写文章链接或包含查询参数，不阻止默认行为
+            if (href.includes('#write') && href.includes('?')) {
+                return;
+            }
+            
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href.split('?')[0]); // 移除查询参数
             if (target) {
                 const offsetTop = target.offsetTop - 70; // 减去导航栏高度
                 window.scrollTo({

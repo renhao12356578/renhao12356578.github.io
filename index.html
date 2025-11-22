@@ -19,19 +19,19 @@
                     <a href="#home" class="nav-link">首页</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">关于我</a>
+                    <a href="#blog" class="nav-link">博客</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#honors" class="nav-link">荣誉奖项</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">技能</a>
+                    <a href="#about" class="nav-link">关于</a>
                 </li>
                 <li class="nav-item">
                     <a href="#projects" class="nav-link">项目</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">联系</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#write" class="nav-link write-link"><i class="fas fa-pen"></i> 写文章</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -67,41 +67,155 @@
         </div>
     </section>
 
+    <!-- 博客部分 -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="blog-header">
+                <h2 class="section-title">最新文章</h2>
+                <a href="#write" class="btn btn-primary write-btn"><i class="fas fa-pen"></i> 写文章</a>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- 文章将通过JavaScript动态加载 -->
+            </div>
+            <div class="blog-more" id="blogMore" style="display: none;">
+                <button class="btn btn-outline" id="loadMoreBtn">查看更多文章</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 写文章部分 -->
+    <section id="write" class="write-section">
+        <div class="container">
+            <h2 class="section-title">写文章</h2>
+            <div class="write-form-container">
+                <form id="articleForm" class="article-form">
+                    <div class="form-group">
+                        <label for="articleTitle">文章标题</label>
+                        <input type="text" id="articleTitle" placeholder="输入文章标题" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="articleCategory">分类</label>
+                            <select id="articleCategory" required>
+                                <option value="">选择分类</option>
+                                <option value="技术">技术</option>
+                                <option value="编程">编程</option>
+                                <option value="思考">思考</option>
+                                <option value="生活">生活</option>
+                                <option value="学习">学习</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleDate">发布日期</label>
+                            <input type="date" id="articleDate" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleExcerpt">文章摘要</label>
+                        <textarea id="articleExcerpt" rows="3" placeholder="输入文章摘要（可选）"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleContent">文章内容</label>
+                        <textarea id="articleContent" rows="15" placeholder="在这里写下你的文章内容..." required></textarea>
+                        <small class="form-hint">支持Markdown格式</small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="previewBtn">预览</button>
+                        <button type="button" class="btn btn-outline" id="saveDraftBtn">保存草稿</button>
+                        <button type="submit" class="btn btn-primary">发布文章</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章查看模态框 -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <article class="article-view">
+                <div class="article-header">
+                    <div class="article-meta">
+                        <span class="article-date" id="modalDate"></span>
+                        <span class="article-category" id="modalCategory"></span>
+                    </div>
+                    <h1 class="article-title" id="modalTitle"></h1>
+                </div>
+                <div class="article-body" id="modalContent"></div>
+                <div class="article-actions">
+                    <button class="btn btn-outline" id="editArticleBtn">编辑</button>
+                    <button class="btn btn-secondary" id="deleteArticleBtn">删除</button>
+                    <button class="btn btn-secondary modal-close-btn">关闭</button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- 预览模态框 -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="preview-header">
+                <h2>文章预览</h2>
+            </div>
+            <article class="article-view">
+                <div class="article-header">
+                    <div class="article-meta">
+                        <span class="article-date" id="previewDate"></span>
+                        <span class="article-category" id="previewCategory"></span>
+                    </div>
+                    <h1 class="article-title" id="previewTitle"></h1>
+                </div>
+                <div class="article-body" id="previewContent"></div>
+            </article>
+        </div>
+    </div>
+
     <!-- 关于我部分 -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">关于我</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <div class="education-info">
-                        <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3>
-                        <p><strong>北京邮电大学计算机学院</strong> | 计算机科学与技术专业 | 本科在读</p>
-                        <p>2023.09 - 至今 | 掌握计算机系统基础、C++程序设计、数据结构、计算机网络等</p>
-                    </div>
-                    <div class="personal-info">
-                        <h3><i class="fas fa-user"></i> 个人信息</h3>
-                        <p> 年龄：20岁  | 邮箱：renhao@bupt.edu.cn</p>
-                    </div>
-                    <p>
-                        本人性格开朗向上，待人热情真诚。学习能力强，组织能力强，极具责任感和团队协作精神，抗压能力强。
-                        有探索精神，敢于接受挑战。英语实际运用能力强，能熟练的进行口语表达和交流。
-                    </p>
-                    <p>
-                        在校组织过较大型活动，能独立完成策划、筹备、组织部门会议。熟练掌握计算机办公软件。
-                        担任北邮计语综合影视部部长，在班级担任组织委员，志愿时长200小时+。
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>200+</h3>
-                            <p>志愿时长</p>
+                <div class="about-content-wrapper">
+                    <div class="about-text">
+                        <div class="about-intro">
+                            <h3>关于我</h3>
+                            <p>
+                                你好，我是任浩，北京邮电大学计算机学院的一名学生。我热爱编程，喜欢探索新技术，
+                                也享受用文字记录学习和生活的点滴。这个博客是我分享技术思考、学习心得和生活感悟的地方。
+                            </p>
                         </div>
-                        <div class="stat">
-                            <h3>4+</h3>
-                            <p>完成项目</p>
-                        </div>
-                        <div class="stat">
-                            <h3>多项</h3>
-                            <p>荣誉奖项</p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>教育背景</h4>
+                                    <p>北京邮电大学计算机学院 | 计算机科学与技术专业 | 本科在读</p>
+                                    <p class="detail-meta">2023.09 - 至今</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <h4>技能专长</h4>
+                                    <p>C/C++, Python, Flask, 前端开发, 微信小程序</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h4>荣誉奖项</h4>
+                                    <p>校级周炯槃奋斗奖学金、校级三好学生、模拟面试大赛校级二等奖</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>联系方式</h4>
+                                    <p>renhao@bupt.edu.cn</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,103 +223,6 @@
         </div>
     </section>
 
-    <!-- 荣誉奖项部分 -->
-    <section id="honors" class="honors">
-        <div class="container">
-            <h2 class="section-title">荣誉奖项与社会活动</h2>
-            <div class="honors-content">
-                <div class="honors-grid">
-                    <div class="honor-card">
-                        <div class="honor-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>学术荣誉</h3>
-                        <ul>
-                            <li>入党积极分子</li>
-                            <li>校级周炯槃奋斗奖学金</li>
-                            <li>校级三好学生</li>
-                            <li>第二届模拟面试大赛校级二等奖</li>
-                        </ul>
-                    </div>
-                    <div class="honor-card">
-                        <div class="honor-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>社会活动</h3>
-                        <ul>
-                            <li>北邮计语综合影视部部长</li>
-                            <li>班级组织委员</li>
-                            <li>志愿时长200小时+</li>
-                            <li>组织过大型活动</li>
-                        </ul>
-                    </div>
-                    <div class="honor-card">
-                        <div class="honor-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>能力特长</h3>
-                        <ul>
-                            <li>英语实际运用能力强</li>
-                            <li>能熟练进行口语表达和交流</li>
-                            <li>独立完成策划、筹备工作</li>
-                            <li>组织部门会议经验丰富</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 技能部分 -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">技能专长</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>编程语言</h3>
-                    <p>C语言, Python, C++程序设计</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>前端开发</h3>
-                    <p>HTML5, CSS3, JavaScript, Vue.js</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>后端框架</h3>
-                    <p>Flask框架, Web平台开发</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>移动开发</h3>
-                    <p>微信小程序开发</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>办公技能</h3>
-                    <p>文书编写, PPT制作, 计算机办公软件</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>计算机基础</h3>
-                    <p>数据结构, 计算机网络, 计算机系统基础</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 项目部分 -->
     <section id="projects" class="projects">
@@ -373,6 +390,7 @@
         </div>
     </footer>
 
+    <script src="blog.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
